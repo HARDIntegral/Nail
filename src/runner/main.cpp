@@ -1,9 +1,8 @@
 #include <iostream>
 
-#define SUCCESS 1
-
 int main() {
   std::cout << "TEST" << std::endl;
+  std::cout << "Raynei was here" << std::endl;
 
-  return SUCCESS;
+  return 0;
 }
