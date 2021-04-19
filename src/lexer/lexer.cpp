@@ -29,6 +29,7 @@ void Lexer::Tokenize(char *argv[]) {
 
 void Lexer::makeTokens(std::string word) {
 
+    // Variable Types
   if (word == "int") {
     Type token = Types;
     tokens.push_back(token);
@@ -47,5 +48,21 @@ void Lexer::makeTokens(std::string word) {
   if (word == "double") {
     Type token = Types;
     tokens.push_back(token);
+  }
+
+  // If statements
+  if (word == "if") {
+      Type token = If_Keywords;
+      tokens.push_back(token);
+  }
+
+  if (word == "else") {
+      Type token = If_Keywords;
+      tokens.push_back(token);
+  }
+
+  if (word == "elif") {
+      Type token = If_Keywords;
+      tokens.push_back(token);
   }
 }

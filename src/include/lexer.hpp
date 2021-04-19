@@ -8,6 +8,7 @@ class Lexer {
 
 public:
   enum Type {
+	If_Keywords,
     Keywords,
     Types,
     Identifiers,
