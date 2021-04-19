@@ -2,35 +2,32 @@
 #include <string>
 #include <fstream>
 
-#define SUCCESS 1
-#define FAILURE 0
 
-using namespace std;
 
 int main(int argc, char *argv[]) {
   if (argc < 2 || argc > 2) {
-    cout << "IMPROPER ARGUMENTS" << endl;
-    return FAILURE;
-  }
-  
-  string inputArgs = argv[1];
-  if (inputArgs.substr(inputArgs.length() - 3).compare(".wl") != 0) {
-    cout << "IMPROPER FILE TYPE" << endl;
-    return FAILURE;
+    std::cout << "IMPROPER ARGUMENTS" << std::endl;
+    return 1;
   }
 
-  fstream inputFile;
-  cout << inputArgs << endl;
-  inputFile.open(inputArgs, ios::in);
-  if (!inputFile) 
-    cout << "FILE NOT FOUND" << endl;
+  std::string inputArgs = argv[1];
+  if (inputArgs.substr(inputArgs.length() - 3).compare(".wl") != 0) {
+    std::cout << "IMPROPER FILE TYPE" << std::endl;
+    return 1;
+  }
+
+  std::fstream inputFile;
+  std::cout << inputArgs << std::endl;
+  inputFile.open(inputArgs, std::ios::in);
+  if (!inputFile)
+    std::cout << "FILE NOT FOUND" << std::endl;
   else {
-    cout << inputArgs << endl;
+    std::cout << inputArgs << std::endl;
 
     // TODO: add the stuff that runs the file
 
     inputFile.close();
   }
 
-  return SUCCESS;
+  return 0;
 }
