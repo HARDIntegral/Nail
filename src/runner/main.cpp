@@ -12,7 +12,7 @@ int main(int argc, char *argv[]) {
   }
   
   std::string inputArgs = argv[1];
-  if (inputArgs.substr(inputArgs.length() - 3).compare(".wl") != 0) {
+  if (inputArgs.substr(inputArgs.length() - 5).compare(".weeb") != 0) {
     std::cout << "IMPROPER FILE TYPE" << std::endl;
     return FAILURE;
   }
