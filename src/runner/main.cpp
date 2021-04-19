@@ -2,6 +2,9 @@
 #include <string>
 #include <fstream>
 
+#include "../includes/list_helpers.h"
+#include "../includes/list.h"
+
 #define SUCCESS 1
 #define FAILURE 0
 
@@ -23,7 +26,6 @@ int main(int argc, char *argv[]) {
     std::cout << "FILE NOT FOUND" << std::endl;
   else {
     // TODO: add the stuff that runs the file
-
     inputFile.close();
   }
 
