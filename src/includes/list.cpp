@@ -14,8 +14,13 @@ List<T>::List() {
 // Destructor to free memory
 template <class T>
 List<T>::~List() {
-  free(head);
-  free(tail);
+  node<T> *currentNode = head;
+  node<T> *tmp;
+  while (currentNode != nullptr) {
+    tmp = currentNode->next;
+    free(currentNode);
+    currentNode = tmp;
+  }
 }
 
 // Adds values to the head of the list
