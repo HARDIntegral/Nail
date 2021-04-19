@@ -20,13 +20,13 @@ class List {
     int push(T data);
     int append(T data);
     // Non-destructive getters
-    T getHead();
-    T getTail();
-    T retriveData(int position);
+    T *getHead();
+    T *getTail();
+    T *retriveData(int position);
     // Destructive getters
-    T pop();
-    T snip();
-    T removeNode(int position);
+    T *pop();
+    T *snip();
+    T *removeNode(int position);
     // Other functions
     int length();
     void iterate(void (*fn)(T), int reverse);

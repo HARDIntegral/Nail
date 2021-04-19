@@ -4,7 +4,6 @@
 
 #define SUCCESS 1
 #define FAILURE 0
-#define NaN sqrt(-1)
 
 // Constructor to generate list
 template <class T>
@@ -59,67 +58,63 @@ int List<T>::append(T data) {
 
 // Retrieves data from the head of the list
 template <class T>
-T List<T>::getHead() {
-  return head->data;
+T *List<T>::getHead() {
+  return &(head->data);
 }
 
 // Retrieves data from the tail of the list
 template <class T>
-T List<T>::getTail() {
-  return tail->data;
+T *List<T>::getTail() {
+  return &(tail->data);
 }
 
 // Retrieves data from a given index in a list
 template <class T>
-T List<T>::retriveData(int position){
+T *List<T>::retriveData(int position){
   node<T> *currentNode = retriveNode(position);
   
   if (currentNode == nullptr)
-    return NaN;
+    return nullptr;
   else 
-    return currentNode->data;
+    return &(currentNode->data);
 }
 
 // Returns the value of the head of the list and then destroys it
 template <class T>
-T List<T>::pop() {
+T *List<T>::pop() {
   node<T> *currentNode = head;
-  T data;
-
   if (currentNode == nullptr)
-    return NaN;
-  else
-    data = currentNode->data;
+    return nullptr;
   
-  if (removeNode(0) == NaN)
-    return NaN;
+  T *data = removeNode(0);
+  if (data == nullptr)
+    return nullptr;
   return data;
 }
 
 // Returns the value of the tail of the list and then destroys it
 template <class T>
-T List<T>::snip() {
+T *List<T>::snip() {
   node<T> *currentNode = tail;
-  T data;
-  
   if (currentNode == nullptr)
-    return NaN;
-  else
-    data = currentNode->data;
-
-  if (removeNode(size - 1) == NaN)
-    return NaN;
+    return nullptr;
+  
+  T* data = removeNode(size - 1);
+  if (data == nullptr)
+    return nullptr;
   return data;
 }
 
 // Returns the valuse of a node of a given position then destroys it
 template <class T>
-T List<T>::removeNode(int position) {
+T *List<T>::removeNode(int position) {
   node<T> *currentNode = retriveNode(position);
+  T *data = new T;
+  T *data_holder;
 
   if (currentNode == nullptr)
-    return NaN;
-  
+    return nullptr;
+
   if (currentNode->next == nullptr)
     tail = currentNode->prev;
   else
@@ -130,7 +125,8 @@ T List<T>::removeNode(int position) {
   else
     currentNode->prev->next = currentNode->next;
 
-  T data = currentNode->data;
+  data_holder = &(currentNode->data);
+  *data = *data_holder;
   delete currentNode;
   return data;
 }
