@@ -1,7 +1,10 @@
+#include <cmath>
+
 #include "list.h"
 
 #define SUCCESS 1
 #define FAILURE 0
+#define NaN sqrt(-1)
 
 // Constructor to generate list
 template <class T>
@@ -28,11 +31,12 @@ int List<T>::push(T data) {
   if (size == 0) 
     tail = newNode;
   else {
-    head.prev = newNode;
-    newNode.next = head;
+    head->prev = newNode;
+    newNode->next = head;
   }
   head = newNode;
   size++;
+  return SUCCESS;
 }
 
 // Adds values to the tail of the list
@@ -45,23 +49,24 @@ int List<T>::append(T data) {
   if (size == 0)
     head = newNode;
   else {
-    tail.next = newNode;
-    newNode.prev = tail;
+    tail->next = newNode;
+    newNode->prev = tail;
   }
   tail = newNode;
   size++;
+  return SUCCESS;
 }
 
 // Retrieves data from the head of the list
 template <class T>
 T List<T>::getHead() {
-  return head.data;
+  return head->data;
 }
 
 // Retrieves data from the tail of the list
 template <class T>
 T List<T>::getTail() {
-  return tail.data;
+  return tail->data;
 }
 
 // Retrieves data from a given index in a list
@@ -70,9 +75,9 @@ T List<T>::retriveData(int position){
   node<T> *currentNode = retriveNode(position);
   
   if (currentNode == nullptr)
-    return nullptr;
+    return NaN;
   else 
-    return currentNode.data;
+    return currentNode->data;
 }
 
 // Returns the value of the head of the list and then destroys it
@@ -82,13 +87,12 @@ T List<T>::pop() {
   T data;
 
   if (currentNode == nullptr)
-    return nullptr;
+    return NaN;
   else
-    data = currentNode.data;
-
-  if (removeNode(0) == nullptr)
-    return nullptr;
-
+    data = currentNode->data;
+  
+  if (removeNode(0) == NaN)
+    return NaN;
   return data;
 }
 
@@ -99,13 +103,12 @@ T List<T>::snip() {
   T data;
   
   if (currentNode == nullptr)
-    return nullptr;
+    return NaN;
   else
-    data = currentNode.data;
+    data = currentNode->data;
 
-  if (removeNode(size - 1) == nullptr)
-    return nullptr;
-
+  if (removeNode(size - 1) == NaN)
+    return NaN;
   return data;
 }
 
@@ -115,19 +118,19 @@ T List<T>::removeNode(int position) {
   node<T> *currentNode = retriveNode(position);
 
   if (currentNode == nullptr)
-    return nullptr;
+    return NaN;
   
-  if (currentNode.next == nullptr)
-    tail = currentNode.prev;
+  if (currentNode->next == nullptr)
+    tail = currentNode->prev;
   else
-    currentNode.next.prev = currentNode.prev;
+    currentNode->next->prev = currentNode->prev;
 
-  if (currentNode.prev == nullptr)
-    head = currentNode.next;
+  if (currentNode->prev == nullptr)
+    head = currentNode->next;
   else
-    currentNode.prev.next = currentNode.next;
+    currentNode->prev->next = currentNode->next;
 
-  T data = currentNode.data;
+  T data = currentNode->data;
   delete currentNode;
   return data;
 }
@@ -144,8 +147,8 @@ void List<T>::iterate(void (*fn)(T), int reverse) {
   node<T> *currentNode = (reverse ? tail : head);
 
   while (currentNode != nullptr) {
-    (*fn)(currentNode.data);
-    currentNode = (reverse ? (currentNode.prev) : (currentNode.next));
+    (*fn)(currentNode->data);
+    currentNode = (reverse ? (currentNode->prev) : (currentNode->next));
   }
 }
 
@@ -155,9 +158,9 @@ node<T> *List<T>::generateNode(T data) {
   node<T> *newNode = new node<T>;
   if (newNode == nullptr)
     return nullptr;
-  newNode.data = data;
-  newNode.next = nullptr;
-  newNode.prev = nullptr;
+  newNode->data = data;
+  newNode->next = nullptr;
+  newNode->prev = nullptr;
   return newNode;
 }
 
@@ -182,13 +185,14 @@ node<T> *List<T>::retriveNode(int position) {
   }
 
   while (currentNode != nullptr) {
-    if (currentPosition = position) 
+    if (currentPosition == position) 
       break;
     
-    currentNode = (reverse ? (currentNode.prev) : (currentNode.next));
+    currentNode = (reverse ? (currentNode->prev) : (currentNode->next));
     currentPosition = (reverse ? (currentPosition - 1) : (currentPosition + 1));
   }
 
   return currentNode;
 }
 
+template class List<int>;
