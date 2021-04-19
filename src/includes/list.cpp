@@ -1,5 +1,3 @@
-#include <cmath>
-
 #include "list.h"
 
 #define SUCCESS 1
