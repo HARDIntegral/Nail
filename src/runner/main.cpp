@@ -25,7 +25,6 @@ int main(int argc, char *argv[]) {
     std::cout << inputArgs << std::endl;
 
     // TODO: add the stuff that runs the file
-
     inputFile.close();
   }
 
