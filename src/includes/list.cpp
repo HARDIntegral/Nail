@@ -73,8 +73,8 @@ T *List<T>::getTail() {
 
 // Retrieves data from a given index in a list
 template <class T>
-T *List<T>::retriveData(int position){
-  node<T> *currentNode = retriveNode(position);
+T *List<T>::retrieveData(int position){
+  node<T> *currentNode = retrieveNode(position);
   
   if (currentNode == nullptr)
     return nullptr;
@@ -111,7 +111,7 @@ T *List<T>::snip() {
 // Returns the valuse of a node of a given position then destroys it
 template <class T>
 T *List<T>::removeNode(int position) {
-  node<T> *currentNode = retriveNode(position);
+  node<T> *currentNode = retrieveNode(position);
   T *data = new T;
   T *data_holder;
 
@@ -165,7 +165,7 @@ node<T> *List<T>::generateNode(T data) {
 
 // Retrieves a node in the list given an index
 template <class T>
-node<T> *List<T>::retriveNode(int position) {
+node<T> *List<T>::retrieveNode(int position) {
   if (position > size - 1)
     return nullptr;
   

@@ -22,7 +22,7 @@ class List {
     // Non-destructive getters
     T *getHead();
     T *getTail();
-    T *retriveData(int position);
+    T *retrieveData(int position);
     // Destructive getters
     T *pop();
     T *snip();
@@ -36,5 +36,5 @@ class List {
     int size;
 
     node<T> *generateNode(T data); 
-    node<T> *retriveNode(int position); 
+    node<T> *retrieveNode(int position); 
 };
