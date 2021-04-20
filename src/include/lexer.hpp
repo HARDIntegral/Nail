@@ -19,8 +19,11 @@ public:
     End_Of_File
   };
 
-private:
   void Tokenize(char *argv[]);
+  Lexer();
+  ~Lexer();
+
+private:
   void makeTokens(std::string word);
   std::vector<Type> tokens;
 };

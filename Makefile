@@ -5,7 +5,7 @@ OBJDIR = build/obj/
 EXECDIR = build/executable/
 SRCS = $(wildcard $(SRCDIR)*.cpp) $(wildcard $(SRCDIR)*/*.cpp)
 OBJS = $(patsubst $(SRCDIR)%.cpp, $(OBJDIR)%.o, $(SRCS))
-NAME = weeb.out
+NAME = weeb
 BUILD = $(EXECDIR)$(NAME)
 
 all: $(OBJS)
