@@ -8,7 +8,7 @@ class Lexer {
 
 public:
   enum Type {
-	If_Keywords,
+    If_Keywords,
     Keywords,
     Types,
     Identifiers,
@@ -20,9 +20,9 @@ public:
   };
 
 private:
-void Tokenize(char *argv[]);
-void makeTokens(std::string word);
-std::vector<Type> tokens;
+  void Tokenize(char *argv[]);
+  void makeTokens(std::string word);
+  std::vector<Type> tokens;
 };
 
 #endif
