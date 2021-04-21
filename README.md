@@ -41,22 +41,22 @@ fn isPrime(input: int) -> (bool) {
 ```
 
 ## Roadmap
--[] Port current code to Rust
--[] Create Parser
-  -[] Create Lexer
-  -[] Create Parse Tree
-  -[] Configure Parser to fill Parse Tree
--[] Create code runner
-  -[] create Parse Tree reader
-  -[] create Executer
--[] Create WeebLang standard library
-  -[] simple math
-  -[] booleans
-  -[] strings
--[] Create other libraries
-  -[] Math library
-  -[] Multiproccessing library
-  -[] others TBD
+-[ ] Port current code to Rust
+-[ ] Create Parser
+  -[ ] Create Lexer
+  -[ ] Create Parse Tree
+  -[ ] Configure Parser to fill Parse Tree
+-[ ] Create code runner
+  -[ ] create Parse Tree reader
+  -[ ] create Executer
+-[ ] Create WeebLang standard library
+  -[ ] simple math
+  -[ ] booleans
+  -[ ] strings
+-[ ] Create other libraries
+  -[ ] Math library
+  -[ ] Multiproccessing library
+  -[ ] others TBD
 
 ## Contributing
 If you wish to contribute contact me on Discord, integral#0400
