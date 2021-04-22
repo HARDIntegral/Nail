@@ -9,7 +9,7 @@ Here is a code snippet to demonstrate syntax and semantics of WeebLang:
 // All imports are initialized here
 import {
   math
-}term;
+};
 
 // WeebLang requires a main fucntion
 fn main() {
@@ -19,7 +19,7 @@ fn main() {
       print(i);
     }
   }
-}term;
+};
 
 // Function declarations are similar to those in Rust
 fn isPrime(input: int) -> (bool) {
@@ -38,7 +38,7 @@ fn isPrime(input: int) -> (bool) {
   }
 
   return is_prime;
-}term;
+};
 ```
 
 ## Roadmap
