@@ -9,27 +9,27 @@ Here is a code snippet to demonstrate syntax and semantics of WeebLang:
 // All imports are initialized here
 import {
   math
-};
+}term;
 
 // WeebLang requires a main fucntion
 fn main() {
   // for loops are formated like C-style for loops
-  for (int i = 0; i <= 10; i++) {
+  for i in 0..10 {
     if isPrime(i) {
       print(i);
     }
   }
-}
+}term;
 
 // Function declarations are similar to those in Rust
 fn isPrime(input: int) -> (bool) {
-  let is_prime: bool = TRUE;
+  let is_prime : bool = TRUE;
 
   if input < 2 {
     is_prime = FALSE;
   } else {
-    const limit: int = math::ceil(math::sqrt(input));
-    for (int i = 2; i < limit; i++) {
+    const limit : int = math::ceil(math::sqrt(input));
+    for 2..limit {
       if input % i == 0 {
         is_prime = FALSE;
         break;
@@ -38,14 +38,14 @@ fn isPrime(input: int) -> (bool) {
   }
 
   return is_prime;
-}
+}term;
 ```
 
 ## Roadmap
 - [X] Port current code to Rust
 - [ ] Create Parser
   - [ ] Create Lexer
-  - [ ] Create Parse Tree
+  - [X] Create Parse Tree
   - [ ] Configure Parser to fill Parse Tree
 - [ ] Create code runner
   - [ ] create Parse Tree reader
