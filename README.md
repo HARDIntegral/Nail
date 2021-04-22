@@ -42,7 +42,7 @@ fn isPrime(input: int) -> (bool) {
 ```
 
 ## Roadmap
-- [ ] Port current code to Rust
+- [X] Port current code to Rust
 - [ ] Create Parser
   - [ ] Create Lexer
   - [ ] Create Parse Tree
