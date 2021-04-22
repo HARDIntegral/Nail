@@ -20,8 +20,3 @@ func main (string[] args) {
     print("5 is prime");
   }
 }
-
-
-
-
-
