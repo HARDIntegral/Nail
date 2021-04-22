@@ -1,4 +1,5 @@
-# WeebLang
+![weeblang](https://user-images.githubusercontent.com/73722314/115655384-371eeb00-a301-11eb-85ec-ad9589d2d524.png)
+
 High-level, safely-typed scripting language written in Rust.
 WeebLang itself has been inspired by both C++ and Rust but does not include the low-level functionality.
 However, what the language lacks in low-level functionality, it makes up for it in its ease of use and readability.
