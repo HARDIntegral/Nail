@@ -1,5 +1,3 @@
-use std::collections::LinkedList;
-
 mod token_enum;
 mod tokenizer;
 
