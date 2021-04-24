@@ -14,3 +14,8 @@ Cargo.lock
 # Added by cargo
 
 /target
+
+
+# Other files created by VS Code
+_.swp
+.history/
