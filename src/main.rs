@@ -29,5 +29,5 @@ fn main() {
     file_contents.push_str(end_of_file_extension);
 
     // Test file reading
-    println!("Test file:\n\n{}", file_contents);
+    lexer::tokenizer(file_contents);
 }

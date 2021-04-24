@@ -1,22 +1,33 @@
+// All imports are initialized here
 import {
-  math;
-}
+  math
+};
 
-func is_prime (int a) -> (bool) {
-  if (a < 2) {
-    return FALSE;
-  }
-  for (int i = 2; i <= ceil(sqrt(a)); i++) {
-    if (a%i == 0) {
-      return FALSE;
+// WeebLang requires a main fucntion
+fn main() {
+  // for loops are formated like C-style for loops
+  for i in 0..10 {
+    if isPrime(i) {
+      print(i);
     }
   }
-  return TRUE;
 }
 
-func main (string[] args) {
-  print("Hello World!");
-  if (is_prime(5)) {
-    print("5 is prime");
+// Function declarations are similar to those in Rust
+fn isPrime(input : int) -> (bool) {
+  let is_prime : bool = TRUE;
+
+  if input < 2 {
+    is_prime = FALSE;
+  } else {
+    const limit : int = math::ceil(math::sqrt(input));
+    for i in 2..limit {
+      if input % i == 0 {
+        is_prime = FALSE;
+        break;
+      }
+    }
   }
+
+  return is_prime;
 }
