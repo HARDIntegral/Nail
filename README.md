@@ -1,4 +1,4 @@
-![Nail](https://user-images.githubusercontent.com/73722314/116003470-1d64f880-a5cc-11eb-87a9-ab19a0c598a3.png)
+![Nail (2)](https://user-images.githubusercontent.com/73722314/116011990-d68bf880-a5f5-11eb-8aca-0064b93ba2ac.png)
 
 Safely-typed scripting language written in Rust.
 Nail itself has been inspired by Rust but does not include the low-level functionality.
