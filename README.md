@@ -50,7 +50,7 @@ fn main() {
 - [ ] Create code runner
   - [ ] create Parse Tree reader
   - [ ] create Executer
-- [ ] Create WeebLang standard library
+- [ ] Create Nail standard library
   - [ ] simple math
   - [ ] booleans
   - [ ] strings
