@@ -19,7 +19,7 @@ pub fn tokenizer(input_string: String) -> Vec<Token> {
             raw_tokens.append(
                 &mut line
                     .trim()
-                    .split(['{', '(', ',', ' ', ')', '}'].as_ref())
+                    .split(['{', '(', ' ', ')', '}'].as_ref())
                     .collect(),
             );
         }
