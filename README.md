@@ -54,6 +54,12 @@ fn main() {
   - [ ] simple math
   - [ ] booleans
   - [ ] strings
+  - [ ] Data Structures
+    - [ ] Lists
+    - [ ] Linked Lists
+    - [ ] Stacks
+    - [ ] Queues
+    - [ ] Trees
 - [ ] Create other libraries
   - [ ] Math library
   - [ ] Multiproccessing library
