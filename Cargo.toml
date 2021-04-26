@@ -1,5 +1,5 @@
 [package]
-name = "weeb_lang"
+name = "nail"
 version = "0.1.0"
 authors = ["HARDIntegral <mohammed.a.tazwar04@gmail.com>"]
 edition = "2018"
