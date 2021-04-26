@@ -5,6 +5,7 @@ use std::io::prelude::*;
 mod lexer;
 
 fn main() {
+    //----------Verify and Configure file-----------------------------------------//
     // Handle the input
     let args: Vec<String> = env::args().collect();
     if args.len() < 2 {
@@ -29,6 +30,7 @@ fn main() {
     let end_of_file_extension: &str = "@@@";
     file_contents.push_str(end_of_file_extension);
 
+    //----------Run Code in file--------------------------------------------------//
     // Test file reading
     lexer::tokenizer(file_contents);
 }

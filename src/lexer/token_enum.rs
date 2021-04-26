@@ -13,7 +13,11 @@ pub enum TokenTypes {
     ForKeyword,
     InLoopRangeKeyword,
     RangeSymbol,
+    BreakKeyword,
+    ContinueKeyword,
 
+    VarInitKeyword,
+    ConstInitKeyword,
     IntTypeKeyword,
     DoubleTypeKeyword,
     BoolTypeKeyword,
@@ -38,6 +42,7 @@ pub enum TokenTypes {
     ReturnTypeIdentifier,
 
     SetOperator,
+    IsEqualOperator,
     LessThanOperator,
     GreaterThanOperator,
     LessEqualOperator,
@@ -58,6 +63,8 @@ pub enum TokenTypes {
     Decrement,
 
     EndOfFileIdentifier,
+    IntegerLiteral,
+    FloatLiteral,
     OtherIdentfier,
     NULL,
 }
