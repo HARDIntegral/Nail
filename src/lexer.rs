@@ -1,3 +1,4 @@
+mod input_cleaner;
 mod token_enum;
 mod tokenizer;
 
@@ -28,57 +29,8 @@ pub fn tokenizer(input_string: String) -> Vec<Token> {
 
     let mut token_intermediate: String;
     for raw_token in raw_tokens.iter() {
-        let mut clean_tokens: Vec<String> = Vec::new();
         token_intermediate = raw_token.to_string();
-        if token_intermediate.len() > 1 {
-            if token_intermediate.ends_with(";") {
-                let (first, _second) = token_intermediate.split_at(token_intermediate.len() - 1);
-                clean_tokens.push(first.to_string());
-                clean_tokens.push(String::from(";"));
-            } else if token_intermediate.ends_with(",") {
-                let (first, _second) = token_intermediate.split_at(token_intermediate.len() - 1);
-                clean_tokens.push(first.to_string());
-                clean_tokens.push(String::from(","));
-            } else if token_intermediate.ends_with("::") {
-                let (first, _second) = token_intermediate.split_at(token_intermediate.len() - 2);
-                clean_tokens.push(first.to_string());
-                clean_tokens.push(String::from("::"));
-            } else if token_intermediate.contains("::") {
-                let u_index: usize = token_intermediate
-                    .find("::")
-                    .map(|token_intermediate| token_intermediate)
-                    .unwrap();
-                let (first, second) = token_intermediate.split_at(u_index + 2);
-                let holder_token: String = first.to_string();
-                clean_tokens.push(holder_token.split_at(holder_token.len() - 2).0.to_string());
-                clean_tokens.push(String::from("::"));
-                clean_tokens.push(second.to_string());
-            } else if token_intermediate.ends_with("..") {
-                let (first, _second) = token_intermediate.split_at(token_intermediate.len() - 2);
-                clean_tokens.push(first.to_string());
-                clean_tokens.push(String::from(".."));
-            } else if token_intermediate.contains("..") {
-                let u_index: usize = token_intermediate
-                    .find("..")
-                    .map(|token_intermediate| token_intermediate)
-                    .unwrap();
-                let (first, second) = token_intermediate.split_at(u_index + 2);
-                let holder_token: String = first.to_string();
-                clean_tokens.push(holder_token.split_at(holder_token.len() - 2).0.to_string());
-                clean_tokens.push(String::from(".."));
-                clean_tokens.push(second.to_string());
-            } else if token_intermediate.ends_with(":") {
-                let (first, _second) = token_intermediate.split_at(token_intermediate.len() - 1);
-                clean_tokens.push(first.to_string());
-                clean_tokens.push(String::from(":"));
-            } else {
-                clean_tokens.push((&*token_intermediate).to_string());
-            }
-        } else {
-            clean_tokens.push((&*token_intermediate).to_string());
-        }
-
-        for token in clean_tokens.iter() {
+        for token in input_cleaner::cleaner((&*token_intermediate).to_string()).iter() {
             token_list.push(tokenizer::tokenize(token.to_string()));
         }
     }
