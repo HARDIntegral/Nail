@@ -2,7 +2,6 @@ use std::env;
 use std::fs::File;
 use std::io::prelude::*;
 
-mod lexer;
 
 fn main() {
     //----------Verify and Configure file-----------------------------------------//
@@ -32,5 +31,4 @@ fn main() {
 
     //----------Run Code in file--------------------------------------------------//
     // Test file reading
-    lexer::tokenizer(file_contents);
 }
