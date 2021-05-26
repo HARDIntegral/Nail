@@ -15,14 +15,9 @@ pub fn tokenizer(input_string: String) -> Vec<Token> {
     let mut raw_tokens: Vec<&str> = Vec::<&str>::new();
     let raw_lines = input_string.lines();
     for line in raw_lines {
+        // Remove comment lines
         if !line.to_string().trim().starts_with("//") {
-            // Remove comment lines
-            raw_tokens.append(
-                &mut line
-                    .trim()
-                    .split(['{', '(', ' ', ')', '}'].as_ref())
-                    .collect(),
-            );
+            raw_tokens.append(&mut line.trim().split_whitespace().collect());
         }
     }
     raw_tokens.retain(|x| *x != "");
