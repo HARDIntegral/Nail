@@ -19,3 +19,10 @@ Cargo.lock
 # Other files created by VS Code
 _.swp
 .history/
+
+
+################################################################
+#CPP
+
+*.o
+*.out
