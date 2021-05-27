@@ -44,7 +44,7 @@ fn main() {
 ## Roadmap
 - [X] Port current code to Rust
 - [ ] Create Parser
-  - [ ] Create Lexer
+  - [ ] Create Lexer (make in C++)
   - [X] Create Parse Tree
   - [ ] Configure Parser to fill Parse Tree
 - [ ] Create code runner
