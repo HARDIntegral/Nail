@@ -2,7 +2,10 @@ use std::env;
 use std::fs::File;
 use std::io::prelude::*;
 
-mod lexer;
+#[link(name = "parser", kind = "static")]
+extern "C" {
+    fn parse(fileContents: &str) -> i32;
+}
 
 fn main() {
     //----------Verify and Configure file-----------------------------------------//
@@ -15,22 +18,24 @@ fn main() {
 
     // Determine if the file extension is correct
     let mut input_file: String = args[1].clone();
-    let extension: String = input_file.split_off(input_file.len() - 3);
-    if !extension.contains("nal") {
+    let extension: String = input_file.split_off(input_file.len() - 2);
+    if !extension.contains("ns") {
         println!("IMPROPER FILE TYPE!");
         return;
     }
-    input_file.push_str("nal");
+    input_file.push_str("ns");
 
     // Open the right file for reading
     let mut file = File::open(input_file).expect("CANNOT OPEN FILE!");
     let mut file_contents: String = String::new();
     file.read_to_string(&mut file_contents)
         .expect("CANNOT READ FILE!");
-    let end_of_file_extension: &str = "@@@";
-    file_contents.push_str(end_of_file_extension);
 
-    //----------Run Code in file--------------------------------------------------//
-    // Test file reading
-    lexer::tokenizer(file_contents);
+    //----------Parse File--------------------------------------------------------//
+    let parse_status = unsafe { parse(&file_contents) };
+    if parse_status != 0 {
+        println!("PARSE FAILED!");
+    }
+
+    //----------Interpret AST-----------------------------------------------------//
 }

@@ -8,3 +8,6 @@ edition = "2018"
 
 [dependencies]
 rand = "0.8.3"
+
+[build-dependencies]
+cmake = "0.1.31"
