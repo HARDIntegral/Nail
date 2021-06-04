@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#include "lexer.h"
+#include "lexer/lexer.h"
 
 #define SUCCESS 0
 #define FAILURE 1
