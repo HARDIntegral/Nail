@@ -4,7 +4,7 @@ use std::io::prelude::*;
 
 #[link(name = "parser_lib", kind = "static")]
 extern "C" {
-    fn parse(fileContents: &str) -> i32;
+    fn parser(fileContents: &str) -> i32;
 }
 
 fn main() {
@@ -32,7 +32,7 @@ fn main() {
         .expect("CANNOT READ FILE!");
 
     //----------Parse File--------------------------------------------------------//
-    let parse_status = unsafe { parse(&file_contents) };
+    let parse_status = unsafe { parser(&file_contents) };
     if parse_status != 0 {
         println!("PARSE FAILED!");
     }

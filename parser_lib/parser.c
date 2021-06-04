@@ -1,5 +1,11 @@
 #include <stdio.h>
 
-void test() {
-    printf("test");
+
+#define SUCCESS 0
+#define FAILURE 1
+
+int parser(char* fileContents) {
+    printf("%s\n", fileContents);
+
+    return SUCCESS;
 }
