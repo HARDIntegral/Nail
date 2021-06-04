@@ -2,7 +2,7 @@ use std::env;
 use std::fs::File;
 use std::io::prelude::*;
 
-#[link(name = "parser", kind = "static")]
+#[link(name = "parser_lib", kind = "static")]
 extern "C" {
     fn parse(fileContents: &str) -> i32;
 }
