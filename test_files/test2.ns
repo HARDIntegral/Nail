@@ -1,7 +1,6 @@
 sys.print("Hello Nail!")
 
-for i in range 0..10 {
+for i in range 0..10 
     sys.print("Hehe Loops")
-}
 
 sys.print("Loop done!")

@@ -2,6 +2,8 @@ use std::env;
 use std::fs::File;
 use std::io::prelude::*;
 
+mod parser;
+
 fn main() {
     //----------Verify and Configure file-----------------------------------------//
     // Handle the input
@@ -26,6 +28,9 @@ fn main() {
     file.read_to_string(&mut file_contents)
         .expect("CANNOT READ FILE!");
 
-    //----------Generate Abstract Parse Tree--------------------------------------//
+    //----------Generate Abstract Syntax Tree-------------------------------------//
     // Parse File
+    if parser::parse(file_contents) != 0 {
+        println!("PARSE FAILURE");
+    }
 }
