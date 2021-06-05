@@ -1,0 +1,22 @@
+from { Math } import { sqrt, ceil }
+
+let prime_verifier: bool = (candidate: Num) => {
+    // 2 is the smallest prime
+    if candidate < 2
+        return False
+    
+    // Check if the candidate is divisible by any factor up to its root
+    const iter_limit: Num = Math.ceil(Math.sqrt(candidate))
+    for i in range 2..iter_limit {
+        if candidate % i == 0
+            return False
+    }
+
+    // if non of the other screening conditions are met, true is returned
+    return True
+}
+
+for i in range 0..10 {
+    if prime_verifier(i) 
+        system.print("{} is prime!\n", i)
+}
