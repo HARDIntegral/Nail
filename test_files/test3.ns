@@ -18,5 +18,5 @@ let prime_verifier: bool = (candidate: Num) => {
 
 for i in range 0..10 {
     if prime_verifier(i) 
-        system.print("{} is prime!\n", i)
+        sys.print("{} is prime!\n", i)
 }
