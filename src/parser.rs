@@ -25,10 +25,6 @@ pub fn parse(file_contents: String) -> i32 {
         raw_tokens.append(&mut tmp_tokenized_line);
     }
 
-    for raw_token in raw_tokens.iter() {
-        println!("{}", raw_token);
-    }
-    
     0
 }
 
