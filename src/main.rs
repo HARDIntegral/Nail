@@ -30,7 +30,8 @@ fn main() {
 
     //----------Generate Abstract Syntax Tree-------------------------------------//
     // Parse File
-    if parser::parse(file_contents) != 0 {
-        println!("PARSE FAILURE");
+    
+    if parser::lexical_analysis(file_contents) != 0 {
+        println!("COMPILATION PANICED")
     }
 }

@@ -1,4 +1,4 @@
-//#![derive(Copy, Clone, Debug)]
+#![derive(Copy, Clone, Debug)]
 pub enum Types {
     ImportStatement,
     FromStatement,
@@ -64,7 +64,7 @@ pub enum Types {
 
     NumLiteral,
     StringLiteral,
-    None,
+    NoneKeyword,
 
     Other
 }
