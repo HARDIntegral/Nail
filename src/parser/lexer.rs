@@ -1,12 +1,129 @@
 #![allow(dead_code)]
 #![allow(unused_variables)]
 
+#![derive(Copy, Clone, Debug)]
+pub enum Type {
+    ImportStatement,
+    FromStatement,
+    StructDeclarationKeyword,
+    EnumDeclarationKeyword,
+    TypedefKeyword,
+    FunctionDeclarationKeyword,
+    ReturnKeyword,
+
+    IfKeyword,
+    IfElseKeyword,
+    ElseKeyword,
+    ForKeyword,
+    WhileKeyword,
+    InKeyword,
+    RangeKeyword,
+    BreakKeyword,
+    ContinueKeyword,
+
+    LetKeyword,
+    ConstKeyword,
+    NumTypeKeyword,
+    CharTypeKeyword,
+    BoolTypeKeyword,
+    StringTypeKeyword,
+    NoneTypeKeyword,
+    TrueTypeKeyword,
+    FalseTypeKeyword,
+
+    OpenBrace,
+    CloseBrace,
+    OpenParen,
+    CloseParen,
+    OpenCurl,
+    CloseCurl,
+
+    Comma,
+    Dot,
+    DoubleDot,
+
+    Set,
+    Add,
+    AddSet,
+    Sub,
+    SubSet,
+    Mult,
+    MultSet,
+    Div,
+    DivSet,
+    Mod,
+    ModSet,
+    Increment,
+    Decrement,
+
+    IsEqu,
+    Not,
+    Or,
+    And,
+    Less,
+    LessEqu,
+    Greater,
+    GreaterEqu,
+
+    NumLiteral,
+    StringLiteral,
+    NoneKeyword,
+
+    Other
+}
+
 fn to_lexeme(file_contents: String) -> Vec<char> {
     file_contents.chars().collect()
 }
 
-fn tokenize(lexemes: Vec<char>) -> (i32, Vec<String>) {
-    let mut tokens: Vec<String> = Vec::new();
+// expects a possible token and an extra character
+fn matcher(candidate: String) -> Type {
+    let shortened: String = candidate.clone().pop().unwrap().to_string();
+    let end_char: char = candidate.clone().chars().last().unwrap();
+    match shortened {
+        "import" => {}
+        "from" => {}
+        "struct" => {}
+        "enum" => {}
+        "typedef" => {}
+        "fn" => {}
+        "return" => {}
+        "if" => {}
+        "elif" => {}
+        "else" => {}
+        "for" => {}
+        "while" => {}
+        "in" => {}
+        "range" => {}
+        "break" => {}
+        "continue" => {}
+        "let" => {}
+        "const" => {}
+        "Num" => {}
+        "char" => {}
+        "bool" => {}
+        "String" => {}
+        "None" => {}
+        "True" => {}
+        "False" => {}
+        "[" => {}
+        "]" => {}
+        "(" => {}
+        ")" => {}
+        "{" => {}
+        "}" => {}
+        "," => {}
+        ".." => {}
+        "." => {}
+    }
+}  
+
+fn tokenize(lexemes: Vec<char>) -> (i32, Vec<Type>) {
+    let mut tokens: Vec<Type> = Vec::new();
+    
+    // march through the lexemes to aquire tokens
+    let mut lexeme_dump: String = String::new();
+    
 
     (0, tokens)
 }
