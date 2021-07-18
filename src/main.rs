@@ -3,6 +3,7 @@ use std::fs::File;
 use std::io::prelude::*;
 
 mod parser;
+pub mod types;
 
 fn main() {
     //----------Verify and Configure file-----------------------------------------//

@@ -1,84 +1,16 @@
 #![allow(dead_code)]
 #![allow(unused_variables)]
 
-#![derive(Copy, Clone, Debug)]
-pub enum Type {
-    ImportStatement,
-    FromStatement,
-    StructDeclarationKeyword,
-    EnumDeclarationKeyword,
-    TypedefKeyword,
-    FunctionDeclarationKeyword,
-    ReturnKeyword,
 
-    IfKeyword,
-    IfElseKeyword,
-    ElseKeyword,
-    ForKeyword,
-    WhileKeyword,
-    InKeyword,
-    RangeKeyword,
-    BreakKeyword,
-    ContinueKeyword,
-
-    LetKeyword,
-    ConstKeyword,
-    NumTypeKeyword,
-    CharTypeKeyword,
-    BoolTypeKeyword,
-    StringTypeKeyword,
-    NoneTypeKeyword,
-    TrueTypeKeyword,
-    FalseTypeKeyword,
-
-    OpenBrace,
-    CloseBrace,
-    OpenParen,
-    CloseParen,
-    OpenCurl,
-    CloseCurl,
-
-    Comma,
-    Dot,
-    DoubleDot,
-
-    Set,
-    Add,
-    AddSet,
-    Sub,
-    SubSet,
-    Mult,
-    MultSet,
-    Div,
-    DivSet,
-    Mod,
-    ModSet,
-    Increment,
-    Decrement,
-
-    IsEqu,
-    Not,
-    Or,
-    And,
-    Less,
-    LessEqu,
-    Greater,
-    GreaterEqu,
-
-    NumLiteral,
-    StringLiteral,
-    NoneKeyword,
-
-    Other
-}
+use crate::types::*; 
 
 fn to_lexeme(file_contents: String) -> Vec<char> {
     file_contents.chars().collect()
 }
 
 // expects a possible token and an extra character
-fn matcher(candidate: String) -> Type {
-    let shortened: String = candidate.clone().pop().unwrap().to_string();
+fn matcher(candidate: String) -> types::Type {
+    let shortened: &str = candidate.clone().pop().unwrap().to_string().as_str();
     let end_char: char = candidate.clone().chars().last().unwrap();
     match shortened {
         "import" => {}
